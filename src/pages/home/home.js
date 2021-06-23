@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 
 import Product from '../../model/product';
 import api from '../../services/api';
+import formatarParaReal from '../../utils/money'
 import { MeuCard } from "../../components/cards/cards";
+import { NomeProduto, ContainerProduto } from "../../styles/divs";
+import { CartButton } from "../../styles/buttons";
 
 export default class Home extends React.Component {
 
@@ -24,21 +27,27 @@ export default class Home extends React.Component {
     render() {
         const { produtos } = this.state;
         return (
-            <div className="container-produtos">
+            <ContainerProduto>
                 {produtos.map(produto => (
-                    <div className="produtos" key={produto.nome}>
+                    <div key={produto.nome}>
                         <MeuCard>
                             <Link to={`/detalhes/${produto.nome}`} className="btn-detalhes">
-                                <div><div><img src={produto.url} alt="Imagem produto"></img></div>
-                                <div><p><strong>Nome:</strong> {produto.nome} </p>
-                                <p><strong>Descrição:</strong> {produto.descricao} </p>
-                                <p><strong>Valor</strong> {produto.preco} </p>
-                                <p><strong>Categoria</strong> {produto.categoria} </p></div></div>
+                                <div>
+                                    <img src={produto.url} alt="Imagem produto"></img>
+                                    <div>
+                                        <NomeProduto><p><strong>{produto.descricao}</strong></p></NomeProduto>
+                                        <div>
+                                            <p>Valor {formatarParaReal(produto.preco)}</p>
+                                            <CartButton>add carrinho</CartButton>
+                                        </div>
+                                    </div>
+                                </div>
                             </Link>
                         </MeuCard>
                     </div>
-                ))}
-            </div>
+                ))
+                }
+            </ContainerProduto>
         );
     }
 }
