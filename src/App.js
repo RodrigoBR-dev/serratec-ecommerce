@@ -1,12 +1,14 @@
-import React from "react";
-import CadastroClientes from "./pages/CadastroClientes";
+import Header from "./components/header/header";
+import Routes from './routes'
 
+import './styles/styles.css';
 function App() {
   return (
-    //<div className="App">
-      //<h1>Olá</h1>
-    //</div>
-    <CadastroClientes></CadastroClientes>
+    <div className="App">
+      <Header/>
+      <Routes/>
+    </div>
+   
   );
 }
 

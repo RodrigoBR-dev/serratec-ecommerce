@@ -57,6 +57,7 @@ export const InputData = styled.input`
 
 
 `;
+
 export const Section = styled.section`
 
     margin-top: 80px;
@@ -65,6 +66,7 @@ export const Section = styled.section`
 
 
 `;
+
 export const Button = styled.button`
 
     cursor: pointer;
@@ -74,8 +76,3 @@ export const Button = styled.button`
 
 
 `;
-
-  
-    
-    
-

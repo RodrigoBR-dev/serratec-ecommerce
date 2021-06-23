@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { DivBox, DivEspaco1, DivEspaco2, Section, InputData, Button } from "../styles/forms-styles";
+import { DivBox, DivEspaco1, DivEspaco2, Section, InputData, Button } from "../../styles/forms";
 
 
 const CadastroClientes = () => {
@@ -57,7 +57,7 @@ const CadastroClientes = () => {
                     </DivEspaco1>
                     <DivEspaco1>
                         <label htmlFor="cpf">CPF</label>
-                        <InputData id="cpf" type="number" placeholder="123456789-00" value={cpf} onChange={(e) => setCpf(e.target.value)}></InputData>
+                        <InputData id="cpf" type="text" placeholder="123456789-00" value={cpf} onChange={(e) => setCpf(e.target.value)}></InputData>
                     </DivEspaco1>
                 </DivEspaco2>
                 <DivEspaco2>
@@ -86,4 +86,3 @@ const CadastroClientes = () => {
     );
 }
 export default CadastroClientes;
-
