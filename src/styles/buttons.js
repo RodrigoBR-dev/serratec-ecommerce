@@ -6,4 +6,4 @@ export const CartButton = styled.button`
     border: 0;
     border-radius: 5px;
     margin: 10px;
-`;
+`; 
