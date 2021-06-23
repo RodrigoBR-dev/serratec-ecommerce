@@ -1,8 +1,9 @@
-
+import React from 'react';
+import Carrinho from "./pages/cart/Carrinho"
 function App() {
   return (
     <div className="App">
-      <h1>Olá</h1>
+      <Carrinho></Carrinho>
     </div>
   );
 }
