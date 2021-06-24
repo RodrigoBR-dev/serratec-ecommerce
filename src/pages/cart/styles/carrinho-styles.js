@@ -13,5 +13,4 @@ export const Container = styled.div `
     flex-direction: row;
     margin:10px;
     box-sizing: border-box;
-
 `

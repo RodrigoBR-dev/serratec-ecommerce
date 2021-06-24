@@ -3,10 +3,9 @@ import { CardCustom, ButtonDiv, Image, Info, Break, Button, Container } from "./
 import util from '../../utils/dinheiro'
 const Card = (props) => {
 
-    //destructor para pegar a quantidade do objeto produto
- 
-    //
-    const [quant, setQuantidade] = useState(1);
+    //destructor para pegar a quantidade do objeto produto 
+
+    const [quant, setQuantidade] = useState(props.quantidade);
 
     //controla o máximo de itens
     const handleAumentaQuantidade = () => {

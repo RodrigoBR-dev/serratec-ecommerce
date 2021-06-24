@@ -12,8 +12,10 @@ const Carrinho = () => {
     const [numeroPedido,setNumeroPedido] = useState(""); 
     const [produto,setProduto] = useState([]); 
     const [pedido,setPedido] = useState({}); 
+    const { nome } = produto;
+    const { quantidade } = produto;
 
-
+    
     useEffect(() => {
         utilsStorage.armazenarNumeroPedido("80106064")
         setNumeroPedido(utilsStorage.obterNumeroDoPedido());
@@ -34,17 +36,33 @@ const Carrinho = () => {
                 console.log(erro)
             })
     }
+    const removerProduto = () => {
+        pedidoApi.removerProduto(numeroPedido,nome,0)
+            .then(resposta => { 
+
+            }).catch(erro => {
+                console.log(erro)
+            })
+    }
 
     return(            
         <Container>
                 <CardProdutos>
                     {produto.map(produto => (
+                        
                                 <div className="produtos" key={produto.nome}>
-                                    <Card imagem={produto.imagem} nome={produto.nome} quantidade={produto.quantidade} valor={produto.valor} />
+                                    <Card imagem={produto.imagem} 
+                                    nome={produto.nome} 
+                                    quantidade={produto.quantidade} 
+                                    valor={produto.valor} 
+
+                                    />
+                                    
                                 </div>
+                               
                             ))}
                 </CardProdutos>
-
+                        <button ></button>
                 <Resumo />
                 
         </Container>
