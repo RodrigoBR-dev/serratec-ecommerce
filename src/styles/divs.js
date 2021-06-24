@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Card = styled.div`
-    min-width:352px;
+    width:352px;
     height:150px;
     padding:10px;
     margin: 5px;
@@ -55,6 +55,7 @@ export const ContainerProduto = styled.div`
     display: flex;
     flex-wrap: wrap;
     width: 90%;
+    padding-top: 10px;
 `;
 
 export const NomeProduto = styled.div`

@@ -38,7 +38,6 @@ export default class Nacionais extends React.Component {
                                         <NomeProduto><p><strong>{produto.descricao}</strong></p></NomeProduto>
                                         <div>
                                             <p>Valor {formatarParaReal(produto.preco)}</p>
-                                            <CartButton>add carrinho</CartButton>
                                         </div>
                                     </div>
                                 </div>

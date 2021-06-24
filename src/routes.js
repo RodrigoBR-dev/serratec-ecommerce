@@ -7,7 +7,8 @@ import Internacionais from './pages/home/categoria/internacionais';
 import Carrinho from './pages/cart/Carrinho';
 import CadastroClientes from './pages/clientes/cadastroClientes';
 import Login from './pages/login/login';
-
+import EnderecoForm from './pages/enderecos/PageEnderecos';
+import ListaEnderecos from './pages/enderecos/ListaEnderecos';
 
 const Routes = () => (
     <BrowserRouter>
@@ -20,7 +21,11 @@ const Routes = () => (
             <Route path="/clientes/cadastro" component= {CadastroClientes} />
             <Route path="/nacionais" component= {Nacionais} />
             <Route path="/importadas" component= {Internacionais} />
+            {/* <Route path="/detalhes/:nome" component= {Details} /> */}
+            <Route path="/enderecos" component= {ListaEnderecos} />
+            <Route path="/cadastro-endereco" component= {EnderecoForm} />
             {/* <Route path="/produto/cadastro" component= {ProductRegister} /> */}
+
         </Switch>
     </BrowserRouter>
 );
