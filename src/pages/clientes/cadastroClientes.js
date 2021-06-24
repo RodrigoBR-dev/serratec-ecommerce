@@ -12,7 +12,7 @@ const CadastroClientes = () => {
     const [dataNascimento, setDataNascimento] = useState("");
 
     const enviarDados = () => {
-        
+            
         
         let dadosCliente = {
             email: email,

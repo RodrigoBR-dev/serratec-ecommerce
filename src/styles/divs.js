@@ -61,3 +61,11 @@ export const ContainerProduto = styled.div`
 export const NomeProduto = styled.div`
     font-size: 20px;
 `;
+
+export const DivPagamento = styled.div`
+    margin: auto;
+    display: flex;
+    width: 90%;
+    padding-top: 10px;
+    margin-left: 20px;
+`;

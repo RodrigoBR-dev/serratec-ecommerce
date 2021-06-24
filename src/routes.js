@@ -9,6 +9,7 @@ import CadastroClientes from './pages/clientes/cadastroClientes';
 import Login from './pages/login/login';
 import EnderecoForm from './pages/enderecos/PageEnderecos';
 import ListaEnderecos from './pages/enderecos/ListaEnderecos';
+import Pagamento from './pages/pagamentos';
 
 const Routes = () => (
     <BrowserRouter>
@@ -24,6 +25,7 @@ const Routes = () => (
             {/* <Route path="/detalhes/:nome" component= {Details} /> */}
             <Route path="/enderecos" component= {ListaEnderecos} />
             <Route path="/cadastro-endereco" component= {EnderecoForm} />
+            <Route path="/pagamento" component= {Pagamento} />
             {/* <Route path="/produto/cadastro" component= {ProductRegister} /> */}
 
         </Switch>

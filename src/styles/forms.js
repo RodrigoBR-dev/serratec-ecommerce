@@ -1,16 +1,19 @@
 import styled from "styled-components"; 
 
 export const DivBox = styled.div `
-    margin-top: 60px;
-    width: 380px;
+    
+    width: 370px;
     margin: auto; 
     height: 400px;
-    border: 1px solid #ddd;
     display:flex;
+    border:solid 1px #ddd;
     flex-direction: column;
     padding: 30px;
     box-sizing: border-box;
     justify-content: space-between;
+    
+    
+    
 `;
 
 export const DivEspaco1 = styled.div `
@@ -101,4 +104,19 @@ export const Button2 = styled.button`
     :hover{
         background-color: deeppink;
     }
+`;
+
+export const DivBox2 = styled.div `
+    
+    width: 500px;
+    margin: auto; 
+    height: 400px;
+    display:flex;
+    flex-direction: column;
+    padding: 30px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    margin-left: 250px;
+    margin-top: 200px;
+    
 `;
