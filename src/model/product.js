@@ -7,5 +7,6 @@ export default class Product {
         this.preco = obj.preco;
         this.categoria = obj.categoria;
         this.url = obj.url;
+        this.quantEstoque = obj.quantEstoque;
     }
 }

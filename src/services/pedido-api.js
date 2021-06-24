@@ -8,7 +8,8 @@ function obterPorNumero(numeroPedido){
 }
 function removerProduto(numeroPedido,produto,quantidade){
     return new Promise((resolve, reject) => {
-        return api.put(`/pedido/${numeroPedido}`, {produto ,quantidade})
+        console.log(numeroPedido,produto,quantidade)
+        return api.put(`/pedido`, {numeroPedido,produto,quantidade})
         .then(response => resolve(response))
         .catch(error => reject(error))
     });

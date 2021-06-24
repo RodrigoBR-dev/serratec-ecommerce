@@ -1,22 +1,23 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import util from '../../utils/dinheiro'
 import { CardResumo, Info } from './styles/resumo-styles';
+import { Button } from './styles/global-style';
 
 const Resumo = (props) => {
-    const [subTotal,setSubTotal] = useState(0); 
-    {console.log(props.subTotal)}
-    const calcularSubTotal = () => {
-       
-    }
+
+
     return(
 
             <CardResumo>
                 <Info>
-                    <p>Resumo</p>
+                    <p>Resumo:</p>
                 </Info>
                 <Info>
-                    <p>Subtotal:{props.subTotal}</p>
+                    <p>Subtotal:{util.formatarParaValorReal(props.subtotal)}</p>
                 </Info>
+                <Button>
+                    Pagamento
+                </Button>
             </CardResumo>
 
     )
