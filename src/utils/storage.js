@@ -6,7 +6,17 @@ function armazenarNumeroPedido(numero){
     localStorage.setItem("numeroPedido" , numero)
 }
 
+function obterToken(){
+    return localStorage.getItem("token");
+}
+
+function armazenarToken(token){
+    localStorage.setItem("token" , token)
+}
+
 export default {
     obterNumeroDoPedido,
-    armazenarNumeroPedido
+    armazenarNumeroPedido,
+    obterToken,
+    armazenarToken
 }

@@ -9,7 +9,6 @@ export const Card = styled.div`
     border-radius: 5px;
     text-align: center;
     
-    
 
     a {
         text-decoration: none;

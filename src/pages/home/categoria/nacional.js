@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-import Product from '../../model/product';
-import api from '../../services/api';
-import formatarParaReal from '../../utils/money'
-import { MeuCard } from "../../components/cards/cards";
-import { NomeProduto, ContainerProduto } from "../../styles/divs";
-import { CartButton } from "../../styles/buttons";
+import Product from '../../../model/product';
+import api from '../../../services/api';
+import formatarParaReal from '../../../utils/money'
+import { MeuCard } from "../../../components/cards/cards";
+import { NomeProduto, ContainerProduto } from "../../../styles/divs";
+import { CartButton } from "../../../styles/buttons";
 
-export default class Home extends React.Component {
+export default class Nacionais extends React.Component {
 
     state = {
         produtos: []
@@ -20,7 +20,7 @@ export default class Home extends React.Component {
 
 
     obterProdutos = async () => {
-        const resposta = await api.get("/produto");
+        const resposta = await api.get("/produto/categoria/Futebol nacionais");
         this.setState({ produtos: resposta.data.map(obj => new Product(obj)) });
     }
 
