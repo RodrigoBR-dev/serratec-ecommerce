@@ -7,16 +7,30 @@ function armazenarNumeroPedido(numero){
 }
 
 function obterToken(){
-    return localStorage.getItem("token");
+    let token = localStorage.getItem("token");
+    return token;
+
 }
 
 function armazenarToken(token){
     localStorage.setItem("token" , token)
 }
 
+function obterUser(){
+    let token = localStorage.getItem("userName");
+    return token;
+
+}
+
+function armazenarUser(userName){
+    localStorage.setItem("userName" , userName)
+}
+
 export default {
     obterNumeroDoPedido,
     armazenarNumeroPedido,
     obterToken,
-    armazenarToken
+    armazenarToken,
+    obterUser,
+    armazenarUser
 }

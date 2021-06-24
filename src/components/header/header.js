@@ -2,8 +2,19 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 import { Menu } from "../../styles/geral";
+import storage from '../../utils/storage';
 
 const Header = () => {
+    const userName = storage.obterUser();
+    console.log(userName)
+    
+    function user() {
+        if (!userName) {
+            return(<Link to={"/login"}>Login</Link>)
+        }
+        return(<Link to={"/cliente"}>Olá {userName}</Link>)
+    }
+   
     return (
         <Menu>
             <li>
@@ -23,7 +34,7 @@ const Header = () => {
                 <Link to={"/carrinho"}>Carrinho</Link>
             </li>
             <li>
-                <Link to={"/login"}>Login</Link>
+                {user()}
             </li>
             </li>
         </Menu>
