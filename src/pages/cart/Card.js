@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
-import { CardCustom, ButtonDiv, Image, Info } from "./styles/styles"
-import utilFormatarReal from '../../utils/dinheiro'
+import { CardCustom, ButtonDiv, Image, Info, Break, Button, Container } from "./styles/styles"
+import util from '../../utils/dinheiro'
 const Card = (props) => {
 
     //destructor para pegar a quantidade do objeto produto
@@ -23,16 +23,35 @@ const Card = (props) => {
     return(
         <div className="card-produto">
             <CardCustom>
+                <Container>
+                    <Image src={props.imagem}/>
+                </Container>
 
-                <Image src={props.imagem}/>
-                <Info>{props.nome}</Info>
-                <ButtonDiv>
-                <button onClick={handleAumentaQuantidade}>+</button>
-                <Info>{quant}</Info>
-                <button onClick={handleDiminuiQuantidade}>-</button>
-                </ButtonDiv>                
-                <Info>{props.valor}</Info>
+                <Container>
+                    <Info>{props.nome}</Info>
+                </Container>
+                <Container>
+                    <ButtonDiv>
+                        <Button onClick={handleDiminuiQuantidade}>-</Button>
+                        <p>{quant}</p>
+                        <Button onClick={handleAumentaQuantidade}>+</Button>
+                    </ButtonDiv>
+                </Container>
+
+                <Container>
+                    <Info>{util.formatarParaValorReal( props.valor * quant ) }</Info>
+                </Container>
+
+                <Container>
+                    <ButtonDiv>
+                        <Button>
+                            Remover Produto
+                        </Button>
+                    </ButtonDiv>
+                </Container>
+                
             </CardCustom>
+            <Break/>
         </div>    
     )
 }
