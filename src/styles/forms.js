@@ -90,15 +90,16 @@ export const InputText = styled.input`
 
 export const Button2 = styled.button`
     width:100%;
-    background-color: purple;
+    background-color: #FFA500;
+    font-size: larger;
     color: #fff;
-    padding: 14px 20px;
+    padding: 12px 20px;
     margin: 8px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     
     :hover{
-        background-color: deeppink;
+        background-color: #FF8500;
     }
 `;

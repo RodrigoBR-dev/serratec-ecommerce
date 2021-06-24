@@ -17,13 +17,22 @@ const Login = () => {
         }
         
         usuarioApi.logar(email, senha)
-            .then(resposta => {
-                const { token } = resposta.readers;
+            .then(resposta => {             
+                const token = resposta.data[0].Authorization;
+                console.log(token);
+                const user = resposta.data[1].userName;
+                console.log(user);
                 utilStorage.armazenarToken(token);
-                window.open('/');
+                utilStorage.armazenarUser(user);
+                window.open('/', "_self");
             })
-            .catch(erro => {
-                console.log(erro);
+            .catch(error => {
+                let erroStatus = error.response.status;
+                if (erroStatus == 403) {
+                    alert("Usuário ou senha inválido");
+                    return
+                }
+                console.log(error)
             })
     }
 

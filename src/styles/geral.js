@@ -19,13 +19,13 @@ export const Menu = styled.ul`
 
         input {
             width: 120%;
-            padding: 5px 10px;
+            padding: 5px 25px;
             margin: 8px 0;
             display: inline-block;
             border: 1px solid #ccc;
             border-radius: 4px;
-            background-image: url('../img/search-icon.png');
-            background-position: 10px 10px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/7e/Vector_search_icon.svg');
+            background-position: 5px 6px;
             background-repeat: no-repeat;
 
             :focus {
