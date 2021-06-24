@@ -51,11 +51,11 @@ const  EnderecoForm = () => {
           </div>
           <div className="numero">
             <label htmlFor="numero">Numero</label>
-            <input id="numero" name="numero" type="number" onChange={onChange} />
+            <input id="numero" name="numero" type="text" onChange={onChange} />
           </div>
           <div className="complemento">
             <label htmlFor="complemento">complemento</label>
-            <input id="complemento" name="complemento" type="number" onChange={onChange} />
+            <input id="complemento" name="complemento" type="text" onChange={onChange} />
           </div>
           <div>
             <button type="submit">Salvar</button>
