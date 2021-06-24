@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { DivBox } from "../styles/forms"
+import { DivBox2 } from "../styles/forms"
 import { DivPagamento } from "../styles/divs" 
 
 
@@ -11,11 +11,11 @@ const Pagamento = () => {
 <h1>Pagamento</h1>
 
 <center>
-    <DivBox>
+    <DivBox2>
 
         <h1>Aqui faríamos o pagamento.</h1>
 
-    </DivBox>
+    </DivBox2>
 
 
 
