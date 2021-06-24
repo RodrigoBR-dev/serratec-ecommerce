@@ -3,6 +3,8 @@ import Card from './Card'
 import utilsStorage from '../../utils/storage'
 import pedidoApi from '../../services/pedido-api';
 import Produto from '../../model/produto-carrinho'
+import Resumo from './Resumo'
+import { CardProdutos, Container } from './styles/carrinho-styles'; 
 
 
 const Carrinho = () => {
@@ -34,16 +36,18 @@ const Carrinho = () => {
     }
 
     return(            
+        <Container>
+                <CardProdutos>
+                    {produto.map(produto => (
+                                <div className="produtos" key={produto.nome}>
+                                    <Card imagem={produto.imagem} nome={produto.nome} quantidade={produto.quantidade} valor={produto.valor} />
+                                </div>
+                            ))}
+                </CardProdutos>
 
-        <center>
-        <div className="card-produtos">
-        {produto.map(produto => (
-                    <div className="produtos" key={produto.nome}>
-                        <Card imagem={produto.imagem} nome={produto.nome} quantidade={produto.quantidade} valor={produto.valor} />
-                    </div>
-                ))}
-        </div>
-        </center>
+                <Resumo />
+                
+        </Container>
     );
 }
 

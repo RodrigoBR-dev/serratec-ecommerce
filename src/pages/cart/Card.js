@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { CardCustom, ButtonDiv, Image, Info, Break, Button, Container } from "./styles/styles"
+import { CardCustom, ButtonDiv, Image, Info, Break, Button, Container } from "./styles/card-styles"
 import util from '../../utils/dinheiro'
 const Card = (props) => {
 
