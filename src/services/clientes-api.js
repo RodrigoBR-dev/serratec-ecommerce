@@ -2,7 +2,8 @@ import api from "./api";
 
 function cadastrarCliente(dadosCliente){
     return new Promise((resolve, reject) => {
-        return api.post('/clientes', {dadosCliente})
+        console.log(dadosCliente)
+        return api.post('/cliente', dadosCliente)
         .then(response => resolve(response))
         .catch(error => reject(error))
     })

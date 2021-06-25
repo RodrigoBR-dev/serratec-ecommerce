@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import { DivBox, DivEspaco1, DivEspaco2, Section, InputData, Button } from "../../styles/forms";
-
+import clientesApi from "../../services/clientes-api";
+import Cliente from "../../model/cliente";
+import api from "../../services/api";
 
 const CadastroClientes = () => {
     const [email, setEmail] = useState("");
@@ -11,10 +13,9 @@ const CadastroClientes = () => {
     const [telefone, setTelefone] = useState("");
     const [dataNascimento, setDataNascimento] = useState("");
 
-    const enviarDados = () => {
-            
-        
-        let dadosCliente = {
+    const enviarDados =  async () => {
+
+        let dadosCliente = new Cliente({
             email: email,
             userName: userName,
             senha: senha,
@@ -23,15 +24,16 @@ const CadastroClientes = () => {
             telefone: telefone,
             dataNascimento: dataNascimento
 
-        }
-        
-        setEmail("")
-        setUserName("")
-        setSenha("")
-        setNome("")
-        setCpf("")
-        setTelefone("")
-        setDataNascimento("")
+        })
+
+        clientesApi.cadastrarCliente(dadosCliente).then(function (response) {
+
+          })
+          .catch(function (error) {
+            alert("Não foi possível criar este cliente");
+          });
+
+
     }
     return (
         <Section>
@@ -72,9 +74,8 @@ const CadastroClientes = () => {
                     </DivEspaco1>
 
                 </DivEspaco2>
-                <DivEspaco1>
-                    <label></label>
-                    <Button onClick = {()=> {enviarDados ()}}>Cadastrar</Button>
+                <DivEspaco1> 
+                    <Button onClick={ () => { enviarDados() }} >Cadastrar</Button>
 
                 </DivEspaco1>
 
