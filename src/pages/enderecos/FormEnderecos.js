@@ -2,11 +2,10 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-
-const ListaEnderecos = ({endereco}) => (
+const FormEnderecos = ({endereco}) => (
     
   <div>
-  <form className="lista-enderecos">
+  {/* <form className="lista-enderecos"> */}
           
     <div className="endereco-info">
       
@@ -17,10 +16,10 @@ const ListaEnderecos = ({endereco}) => (
       <label> Complemento:{endereco.complemento} </label>
       <button type="submit">Selecionar</button>
     </div>
-    </form>
+  {/*   </form> */}
     
 </div>
 
 );
 
-export default ListaEnderecos;
+export default FormEnderecos;

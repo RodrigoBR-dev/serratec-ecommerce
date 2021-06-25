@@ -15,9 +15,9 @@ const Login = () => {
             alert("Favor informar e-mail e senha");
             return;
         }
-        
+
         usuarioApi.logar(email, senha)
-            .then(resposta => {             
+            .then(resposta => {
                 const token = resposta.data[0].Authorization;
                 const user = resposta.data[1].userName;
                 utilStorage.armazenarToken(token);
