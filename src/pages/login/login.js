@@ -44,6 +44,7 @@ const Login = () => {
     return (
         <DivPersonalizada width="400px" border="1px solid #ddd" margin="auto" marginTop="10px">
             <h1>Login</h1>
+            <h2>Olá! Para continuar, digite seu email!</h2>
             <label htmlFor="email">Email</label>
             <InputText itemID="email" value={email} onChange={e => setEmail(e.target.value)}></InputText>
             <label htmlFor="senha">Senha</label>

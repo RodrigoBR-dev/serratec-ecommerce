@@ -17,9 +17,9 @@ function obterPorCategoria(categoria){
     });
 }
 
-function obterPorBusca(busca){
+function obterPorBusca(nomeProduto){
     return new Promise((resolve, reject) => {
-        return api.get('/produto/busca'+busca)
+        return api.get('/produto/busca'+nomeProduto)
         .then(response => resolve(response))
         .catch(error => reject(error))
     });

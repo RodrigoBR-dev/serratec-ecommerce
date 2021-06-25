@@ -12,15 +12,15 @@ const Carrinho = () => {
     const [numeroPedido,setNumeroPedido] = useState(""); 
     const [produtos,setProdutos] = useState([]); 
 
-    const [pedido,setPedido] = useState({}); 
-
-
+    const [pedido,setPedido] = useState({});
+    const [total, setTotal] = useState(0)
     
     useEffect(() => {
-        utilsStorage.armazenarNumeroPedido("80106064")
+        
         setNumeroPedido(utilsStorage.obterNumeroDoPedido());
         if(!numeroPedido){
             <div> Carrinho vazio </div>
+            
             return;
         }
        
@@ -41,6 +41,7 @@ const Carrinho = () => {
         pedidoApi.obterPorNumero(numeroPedido)
             .then(resposta => { 
                 setPedido(resposta.data)
+                setTotal(pedido.totalProdutos)
                 setProdutos(resposta.data.produto.map (obj => new Produto(obj) ))
             }).catch(erro => {
                 console.log(erro)
@@ -51,7 +52,8 @@ const Carrinho = () => {
     return(            
         <Container>
                 <CardProdutos>
-                    {produtos.map(produto => (                                                                 
+                    {produtos.map(produto => (    
+                                                                                    
                         <DivProd className="produtos" key={produto.nome}>
                             <Card imagem={produto.imagem} 
                             nome={produto.nome} 
@@ -62,9 +64,10 @@ const Carrinho = () => {
                                 <Button   onClick={() => removerProduto(produto.nome)}>X</Button>
                             </BotaoDiv>
                         </DivProd>
+
                         ))}
                 </CardProdutos>
-                <Resumo subtotal = {pedido.totalProdutos}/>
+                <Resumo frete ={pedido.frete} total = {pedido.totalProdutos}/>
         </Container>
         
     );
