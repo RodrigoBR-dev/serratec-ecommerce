@@ -41,7 +41,7 @@ const EnderecoForm = () => {
       <div className="Newform" >
         <div className="DivInput">
           <label htmlFor="cep">CEP</label>
-          <input id="cep" name="cep" type="text" placeholder="informe um CEP válido"   onChange={onChange} />
+          <input id="cep" name="cep" type="text" placeholder="00.000-000"   onChange={onChange} />
         </div>
       
 
@@ -70,7 +70,7 @@ const EnderecoForm = () => {
 
           <div className="DivInput">
             <label htmlFor="bairro">Bairro</label>
-            <input id="bairro" name="bairro" type="text" placeholder="bairro" onChange={onChange} />
+            <input id="bairro" name="bairro" type="text" placeholder="Bairro" onChange={onChange} />
           </div>
 
           <div className="DivInput">

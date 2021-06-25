@@ -70,18 +70,4 @@ export const FormEnderecos = styled.div`
 
 
   
-   /*  export const BotaoSalvar = styled.form`
-    width: 100%;
-    font-size: 18px;
-    border-radius: 4px;
-    height: 40px;
-    opacity: .8;
-    margin-bottom: 20px;
-    cursor: pointer;
-    display: block;
-    border-bottom: 1px solid var(--cor-bordas);
-    border-right: 1px solid var(--cor-bordas);
-    transition: 1.2s;
-
-
-    `; */
+   

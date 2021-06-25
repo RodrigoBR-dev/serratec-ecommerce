@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import ListaEnderecos from './ListaEnderecos';
+import '../../styles/styles.css';
+
 
 const BuscaEndereco = ({search}) => {
   const [enderecos, setEndereco] = useState([]);
@@ -21,16 +22,17 @@ const BuscaEndereco = ({search}) => {
   }, [search]);
   console.log(enderecos);
   return (
-    <div className="lista">
-      <header className="header-endereço">
+    <div className="Lista">
+      <header className="header-endereco">
         <h1>Endereços Cadastrados</h1>
-        <Link to="/cadastro-endereco">Novo Endereço</Link>
+        
       </header>
       
-
+      <Link to="/cadastro-endereco">Novo Endereço</Link>
       {/* comentado porque a requisição tá dando erro */}
       {/* <ListaEnderecos enderecos={enderecos} loading={!enderecos.length} /> */}
     </div>
+    
   );
 };
 
