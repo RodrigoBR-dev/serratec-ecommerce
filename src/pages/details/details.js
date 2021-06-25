@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
 
-import Product from '../../model/product';
 import api from '../../services/api';
 import formatarParaReal from '../../utils/money';
 import { DetalheProd } from '../../styles/divs';
 import utilStorage from '../../utils/storage';
 import { Button , ButtonDiv} from '../cart/styles/global-style';
-import storage from '../../utils/storage';
 
 const Details = (props) => {
     const [nomeProduto, setNomeProduto] = useState("");
     const [product, setProduct] = useState({});
     const [userName, setUserName] = useState("");
     const [quantidade, setQuantidade] = useState(1);
+    const [numPedido, setNumPedido] = useState("");
 
     useEffect(() => {
         setNomeProduto(props.match.params.nome);
         obterProduto();
+        setUserName(utilStorage.obterUser());
+        setNumPedido(utilStorage.obterNumeroDoPedido());
     })
 
     const obterProduto = async () => {
@@ -25,21 +25,38 @@ const Details = (props) => {
         setProduct(resposta.data);
     }
 
-    function obterUser() {
-        setUserName(utilStorage.obterUser());
-        if (userName) {
-            criarPedido()
+    function testaUsuario() {
+        if (!userName) {
+           window.open('/login', '_self');
         }
-        console.log(userName)
-//        window.open('/login', '_self');
+        testarPedido()
+    }
+
+    function testarPedido() {
+        if (numPedido){
+            atualizarPedido()
+            return;
+        }
+        criarPedido();
     }
 
     const criarPedido = async () => {
         let endEntrega = "casa";
-        let resposta = await api.post("/pedido", { nomeProduto, userName, endEntrega, quantidade});
-        let numeroPedido = resposta.data.numeroPedido
-        console.log(numeroPedido);
-        storage.armazenarEstoque(nomeProduto, product.quantidade)
+        await api.post("/pedido", {"produto" : nomeProduto, "cliente" : userName, "endEntrega" : endEntrega, "quantidade" : quantidade})
+        .then(resposta => {
+            utilStorage.armazenarNumeroPedido(resposta.data.numeroDoPedido);
+            utilStorage.armazenarEstoque(nomeProduto, product.quantEstoque);
+        })
+      //  window.open('/', '_self');
+    }
+
+    const atualizarPedido = async ()=> {
+        let endEntrega = "casa";
+        await api.put("/pedido", {"numeroDoPedido": numPedido,"produto" : nomeProduto, "quantidade" : quantidade})
+        .then(resposta => {
+            utilStorage.armazenarEstoque(nomeProduto, product.quantEstoque);
+        })
+     //   window.open('/', '_self');
     }
 
     const handleAumentaQuantidade = () => {
@@ -62,7 +79,7 @@ const Details = (props) => {
                 <div>Categoria {product.categoria}</div>
                 <div>{product.nome}</div>
                 <div>{product.descricao}</div>
-                <div>{product.preco}</div>
+                <div>{formatarParaReal(product.preco)}</div>
                 <div>{product.quantEstoque}</div>
                 <ButtonDiv>
                     <Button onClick={handleDiminuiQuantidade}>-</Button>
@@ -70,7 +87,7 @@ const Details = (props) => {
                     <Button onClick={handleAumentaQuantidade}>+</Button>
                 </ButtonDiv>
 
-                <button onClick={obterUser}>Enviar carrinho</button>
+                <button onClick={() => testaUsuario()}>Enviar carrinho</button>
             </center>
         </DetalheProd>
     )

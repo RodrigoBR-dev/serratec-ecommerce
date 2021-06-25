@@ -16,9 +16,8 @@ function armazenarToken(token){
     localStorage.setItem("token" , token)
 }
 
-function obterUser(){
-    let token = localStorage.getItem("userName");
-    return token;
+const obterUser = () => {
+    return localStorage.getItem("userName");
 
 }
 
