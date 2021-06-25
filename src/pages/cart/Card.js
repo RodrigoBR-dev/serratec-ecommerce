@@ -14,7 +14,7 @@ const Card = (props) => {
     }
     //controla o mínimo de itens
     const handleDiminuiQuantidade = () => {
-        if(quant >= props.quantidade){
+        if(quant >= props.quantidade && quant !== 1){
             setQuantidade(quant - 1)            
         }
     }

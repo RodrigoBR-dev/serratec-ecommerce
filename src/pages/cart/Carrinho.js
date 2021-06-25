@@ -13,8 +13,6 @@ const Carrinho = () => {
     const [produtos,setProdutos] = useState([]); 
 
     const [pedido,setPedido] = useState({}); 
-    const [subtotal,setSubtotal] = useState(0); 
-    
 
 
     
@@ -42,10 +40,7 @@ const Carrinho = () => {
     const obterPedido = () => {
         pedidoApi.obterPorNumero(numeroPedido)
             .then(resposta => { 
-                setSubtotal(resposta.data.totalProdutos)
-                //não está sendo usado
                 setPedido(resposta.data)
-
                 setProdutos(resposta.data.produto.map (obj => new Produto(obj) ))
             }).catch(erro => {
                 console.log(erro)
@@ -57,21 +52,19 @@ const Carrinho = () => {
         <Container>
                 <CardProdutos>
                     {produtos.map(produto => (                                                                 
-                                <DivProd className="produtos" key={produto.nome}>
-                                    <Card imagem={produto.imagem} 
-                                    nome={produto.nome} 
-                                    quantidade={produto.quantidade} 
-                                    valor={produto.valor}
-                                    evento={removerProduto}
-                                    />
-                                    <BotaoDiv>
-                                        <Button   onClick={() => removerProduto(produto.nome)}>X</Button>
-                                    </BotaoDiv>
-                                </DivProd>
-                               
-                            ))}
+                        <DivProd className="produtos" key={produto.nome}>
+                            <Card imagem={produto.imagem} 
+                            nome={produto.nome} 
+                            quantidade={produto.quantidade} 
+                            valor={produto.valor}                                  
+                            />
+                            <BotaoDiv>
+                                <Button   onClick={() => removerProduto(produto.nome)}>X</Button>
+                            </BotaoDiv>
+                        </DivProd>
+                        ))}
                 </CardProdutos>
-                <Resumo subtotal = {subtotal}/>
+                <Resumo subtotal = {pedido.totalProdutos}/>
         </Container>
         
     );

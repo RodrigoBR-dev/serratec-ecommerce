@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const CardProdutos =  styled.div `
     display: flex;
     flex-direction:column;
-    margin-left: 20px;
     max-width: 80%;
     
 

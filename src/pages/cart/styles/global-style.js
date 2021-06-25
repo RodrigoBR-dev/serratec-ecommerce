@@ -25,11 +25,15 @@ export const ButtonDiv = styled.div `
     display: flex;
     flex-direction: row;
     align-items: center;
-    border: 2px solid black;
     border-radius: 90px;
     height: 50px;
     width: 100px;
     box-sizing: border-box;
+    background-color: #CC792B;
+
+    :hover{
+        background-color: #FFA500;
+    }
 
     button {
         background:none;
