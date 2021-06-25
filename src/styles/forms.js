@@ -56,7 +56,7 @@ export const Button = styled.button`
 export const FormEnderecos = styled.div`
   margin-top: 60px;
   width: 380px;
-    margin-left: 500px;
+  margin-left: 500px;
   align-items: center;
   align-content: center;
   height: 500px;
@@ -67,8 +67,8 @@ export const FormEnderecos = styled.div`
   box-sizing: border-box;
   box-shadow: 0px 0px 10px black;
 `;
-  
-   /*  export const BotaoSalvar = styled.form`
+
+export const BotaoSalvar = styled.form`
     width: 100%;
     font-size: 18px;
     border-radius: 4px;
@@ -110,7 +110,7 @@ export const Button2 = styled.button`
     }
 `;
 
-export const DivBox2 = styled.div `
+export const DivBox2 = styled.div`
     
     width: 500px;
     margin: auto; 
@@ -123,4 +123,4 @@ export const DivBox2 = styled.div `
     margin-left: 250px;
     margin-top: 200px;
     
-`; */
+`;

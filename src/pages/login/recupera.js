@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
 import usuarioApi from '../../services/usuario-api'
+import { DivPersonalizada } from '../../styles/geral';
+import { InputText, Button2 } from '../../styles/forms';
 
 const Recupera = () => {
 
@@ -26,11 +28,11 @@ const Recupera = () => {
     }
 
     return(
-        <div>
+        <DivPersonalizada width="300px" border="1px solid #ddd" margin="auto" marginTop="50px">
             <label>Digite seu cpf</label>
-            <input value={cpf} onChange={(e) => setCpf(e.target.value)}></input>
-            <button onClick = {()=> {receberToken()}}>Enviar</button>
-        </div>
+            <InputText value={cpf} onChange={(e) => setCpf(e.target.value)} placeholder="123456789-00"></InputText>
+            <Button2 onClick = {()=> {receberToken()}}>Enviar</Button2>
+        </DivPersonalizada>
     );
 }
 

@@ -16,7 +16,16 @@ function recebeToken(cpf){
     })
 }
 
+function atualizarSenha(token){
+    return new Promise((resolve, reject) => {
+        return api.put('/cliente/recupera?token='+token)
+        .then(response => resolve(response))
+        .catch(error => reject(error))
+    })
+}
+
 export default {
     logar,
-    recebeToken
+    recebeToken,
+    atualizarSenha
 };

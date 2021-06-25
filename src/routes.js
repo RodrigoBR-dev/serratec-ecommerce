@@ -14,6 +14,7 @@ import Pagamento from './pages/pagamentos';
 import Details from './pages/details/details';
 import Cliente from './pages/clientes/cliente';
 import BuscaEnderecos from './pages/enderecos/BuscaEnderecos';
+import Token from './pages/login/token';
 
 const Routes = () => (
     <BrowserRouter>
@@ -33,6 +34,7 @@ const Routes = () => (
             <Route path="/endereco" component= {BuscaEnderecos} />
             <Route path="/cadastro-endereco" component= {EnderecoForm} />
             <Route path="/pagamento" component= {Pagamento} />
+            <Route path="/token/:token" component= {Token} />
             {/* <Route path="/produto/cadastro" component= {ProductRegister} /> */}
 
         </Switch>

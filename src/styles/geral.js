@@ -49,9 +49,16 @@ export const Menu = styled.ul`
 `;
 
 export const DivPersonalizada = styled.div`
+    display: flex;
+    flex-direction: column;
     width: ${props => props.width};
     border: ${props => props.border};
     margin: ${props => props.margin};
     padding: 25px;
     margin-top: ${props => props.marginTop};
+
+    a {
+        text-align: end;
+        font-size: 13px;
+    }
 `;
