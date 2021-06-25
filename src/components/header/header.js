@@ -6,7 +6,6 @@ import storage from '../../utils/storage';
 
 const Header = () => {
     const userName = storage.obterUser();
-    console.log(userName)
     
     function user() {
         if (!userName) {

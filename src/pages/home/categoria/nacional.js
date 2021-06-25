@@ -6,7 +6,6 @@ import api from '../../../services/api';
 import formatarParaReal from '../../../utils/money'
 import { MeuCard } from "../../../components/cards/cards";
 import { NomeProduto, ContainerProduto } from "../../../styles/divs";
-import { CartButton } from "../../../styles/buttons";
 
 export default class Nacionais extends React.Component {
 

@@ -69,3 +69,10 @@ export const DivPagamento = styled.div`
     padding-top: 10px;
     margin-left: 20px;
 `;
+
+export const DetalheProd = styled.div`
+    display: flex;
+    margin: auto;
+    max-width: 90%;
+    padding: 10px;
+`;

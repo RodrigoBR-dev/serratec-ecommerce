@@ -19,9 +19,7 @@ const Login = () => {
         usuarioApi.logar(email, senha)
             .then(resposta => {             
                 const token = resposta.data[0].Authorization;
-                console.log(token);
                 const user = resposta.data[1].userName;
-                console.log(user);
                 utilStorage.armazenarToken(token);
                 utilStorage.armazenarUser(user);
                 window.open('/', "_self");
