@@ -26,11 +26,23 @@ function armazenarUser(userName){
     localStorage.setItem("userName" , userName)
 }
 
+function obterEstoque(nomeProduto){
+    let token = localStorage.getItem(nomeProduto);
+    return token;
+
+}
+
+function armazenarEstoque(nomeProduto, quantidade){
+    localStorage.setItem(nomeProduto , quantidade)
+}
+
 export default {
     obterNumeroDoPedido,
     armazenarNumeroPedido,
     obterToken,
     armazenarToken,
     obterUser,
-    armazenarUser
+    armazenarUser,
+    obterEstoque,
+    armazenarEstoque
 }
