@@ -36,7 +36,7 @@ const EnderecoForm = () => {
   }
   return (
     <FormEnderecos> 
-      
+    <form onSubmit = {onSubmit}>  
       <h1>Faça seu cadastro</h1>
       <div className="Newform" >
         <div className="DivInput">
@@ -90,11 +90,12 @@ const EnderecoForm = () => {
 
       
         <div className="BotaoSalvar">
-          <button type="submit" a href="./cadastro-endereco">Salvar</button>
+          <button type="submit">Salvar</button>
        </div>
       </div>
-   
+   </form>
       </FormEnderecos>
+
   );
 };
 export default EnderecoForm;
