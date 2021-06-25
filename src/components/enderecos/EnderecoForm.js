@@ -26,7 +26,7 @@ const EnderecoForm = () => {
 
   function onSubmit(ev) {
     ev.preventDefault();
-    //endereço de onde vou inserir o endereço
+    
     axios
       .post("https://localhost:3000/endereco", values)
       //verificar com o pessoal a URL correta
