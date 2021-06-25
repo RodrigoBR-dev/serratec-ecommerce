@@ -70,7 +70,7 @@ export const FormEnderecos = styled.div`
 
 
   
-    export const BotaoSalvar = styled.form`
+   /*  export const BotaoSalvar = styled.form`
     width: 100%;
     font-size: 18px;
     border-radius: 4px;
@@ -84,4 +84,4 @@ export const FormEnderecos = styled.div`
     transition: 1.2s;
 
 
-    `;
+    `; */

@@ -11,25 +11,30 @@ body {
 
 .NewForm {
     padding: 10px;
+    width: 100%;
     
-  
 
+    
 }
 
 .DivInput{
-    justify-content: space-between;
-    float: left;
+    justify-content:end;
+    flex-direction: column;
     width: 100%;
-
-align-items: flex-end;
+    
 }
 .DivInput input {
 width: 50%;
 margin: 10px;
-float: right;
 
 }
 
+.DivInput label {
+
+    width: 50%;
+    margin: 10px;
+
+}
 .BotaoSalvar{
     width: 100%;
     align-items: flex-end;

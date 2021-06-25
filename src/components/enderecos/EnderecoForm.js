@@ -35,9 +35,10 @@ const EnderecoForm = () => {
       });
   }
   return (
-    <FormEnderecos > 
+    <FormEnderecos> 
+      
       <h1>Faça seu cadastro</h1>
-      <div className="Newform" onSubmit={onSubmit}>
+      <div className="Newform" >
         <div className="DivInput">
           <label htmlFor="cep">CEP</label>
           <input id="cep" name="cep" type="text" placeholder="informe um CEP válido"   onChange={onChange} />
@@ -46,11 +47,9 @@ const EnderecoForm = () => {
 
         <div className="DivInput">
           <label htmlFor="cliente">Cliente</label>
-          <input id="cliente" name="cliente" placeholder="digite seu nome" type="text"
-                   
-            
-            onChange={onChange}
-          />
+          <input id="cliente" name="cliente" placeholder="digite seu nome" type="text"onChange={onChange}/>
+                            
+                  
         </div>
 
         <div className="DivInput">
@@ -94,6 +93,7 @@ const EnderecoForm = () => {
           <button type="submit" a href="./cadastro-endereco">Salvar</button>
        </div>
       </div>
+   
       </FormEnderecos>
   );
 };

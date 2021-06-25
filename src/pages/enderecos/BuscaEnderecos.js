@@ -4,15 +4,19 @@ import axios from 'axios';
 
 const BuscaEndereco = () => {
   const [enderecos, setEndereco] = useState([]);
-  
+  const [search, setSearch] = useState('');
+ 
 
   useEffect(() => {
-      
-    axios.get('https://serratec.herokuapp.com/endereco/rodrigo')
+    const params = {};
+    if (search) {
+      params.nome = search;
+    }
+    axios.get('https://serratec.herokuapp.com/endereco',{ params })
       .then((response) => {
         setEndereco(response.data);
       });
-  }, );
+  }, [search]);
 
   return (
     <div className="lista">
