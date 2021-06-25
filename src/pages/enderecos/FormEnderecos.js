@@ -5,7 +5,7 @@ import axios from 'axios';
 const FormEnderecos = ({endereco}) => (
     
   <div>
-  <form className="lista-enderecos">
+  {/* <form className="lista-enderecos"> */}
           
     <div className="endereco-info">
       
@@ -16,7 +16,7 @@ const FormEnderecos = ({endereco}) => (
       <label> Complemento:{endereco.complemento} </label>
       <button type="submit">Selecionar</button>
     </div>
-    </form>
+  {/*   </form> */}
     
 </div>
 

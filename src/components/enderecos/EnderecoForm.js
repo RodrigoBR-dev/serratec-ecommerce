@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 //import { FormEnderecos } from "../../styles/forms";
-import { FormEnderecos } from '../../styles/forms';
+import { FormEnderecos, DivCep, DivCliente } from '../../styles/forms';
+import styled from "styled-components";
 
 
 
@@ -36,14 +37,14 @@ const EnderecoForm = () => {
   }
   return (
     <FormEnderecos > 
-      <h1>teste jessica</h1>
-      <form className="newform" onSubmit={onSubmit}>
-        <div className="cep">
-          <label htmlFor="cep">CEP</label>
+      <h1>Faça seu cadastro</h1>
+      <form className="Newform" onSubmit={onSubmit}>
+        <div className="DivCep">
+          <label htmlFor="DivCep">CEP</label>
           <input id="cep" name="cep" type="text" placeholder="informe um CEP válido"   onChange={onChange} />
-        </div>
+        </div><br></br>
 
-        <div className="cliente">
+        <div className="DivCliente">
           <label htmlFor="cliente">Cliente</label>
           <input id="cliente"
             name="cliente"
@@ -51,8 +52,9 @@ const EnderecoForm = () => {
             type="text"
             onChange={onChange}
           />
-        </div>
-        <div className="numero">
+        </div><br></br>
+
+        <div className="DivNumero">
           <label htmlFor="numero">Numero</label>
           <input
             id="numero"
@@ -61,8 +63,9 @@ const EnderecoForm = () => {
             type="text"
             onChange={onChange}
           />
-        </div>
-        <div className="complemento">
+        </div><br></br>
+
+        <div className="DivComplemento">
           <label htmlFor="complemento">complemento</label>
           <input
             id="complemento"
@@ -71,24 +74,30 @@ const EnderecoForm = () => {
             type="text"
             onChange={onChange}
           />
-          <div className="bairro">
+          </div><br></br>
+
+          <div className="DivBairro">
             <label htmlFor="bairro">Bairro</label>
             <input id="bairro" name="bairro" type="text" placeholder="bairro" onChange={onChange} />
-          </div>
-          <div className="cidade">
+          </div><br></br>
+
+          <div className="DivCidade">
             <label htmlFor="cidade">Município</label>
             <input id="cidade" name="cidade" type="text" placeholder="Município" onChange={onChange} />
-          </div>
-          <div className="estado">
+          </div><br></br>
+
+          <div className="DivEstado">
             <label htmlFor="estado">UF</label>
             <input id="estado" name="estado" type="text" placeholder="UF" onChange={onChange} />
-          </div>
-          <div className="email">
-            <label htmlFor="email">e-mail</label>
+          </div><br></br>
+
+          <div className="DivEmail">
+            <label htmlFor="email">email</label>
             <input id="email" name="email" type="email" placeholder="email@email.com" onChange={onChange} />
-          </div>
-        </div>
-        <div>
+          </div><br></br>
+
+      
+        <div className="BotaoSalvar">
           <button type="submit" a href="/endereco">Salvar</button>
         </div>
       </form>

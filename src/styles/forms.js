@@ -1,92 +1,112 @@
-import styled from "styled-components"; 
+import styled from "styled-components";
 
-export const DivBox = styled.div `
-    margin-top: 60px;
-    width: 380px;
-    margin: auto; 
-    height: 400px;
-    border: 1px solid #ddd;
-    display:flex;
-    flex-direction: column;
-    padding: 30px;
-    box-sizing: border-box;
-    justify-content: space-between;
+export const DivBox = styled.div`
+  margin-top: 60px;
+  width: 380px;
+  margin: auto;
+  height: 400px;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  box-sizing: border-box;
+  justify-content: space-between;
 `;
 
-export const DivEspaco1 = styled.div `
-    
-    display: grid;
-    justify-content: space-between;
-    width:100%;
-    grid-template-columns: 100%;
-    flex-direction: row;
-
-
-
-
+export const DivEspaco1 = styled.div`
+  display: grid;
+  justify-content: space-between;
+  width: 100%;
+  grid-template-columns: 100%;
+  flex-direction: row;
 `;
 
-export const DivEspaco2 = styled.div `
-
-    display: grid;
-    justify-content: space-between;
-    width:100%;
-    grid-template-columns: 130px 160px;
-    flex-direction: row;
-
-
-
+export const DivEspaco2 = styled.div`
+  display: grid;
+  justify-content: space-between;
+  width: 100%;
+  grid-template-columns: 130px 160px;
+  flex-direction: row;
 `;
 
-export const DivEspaco3 = styled.div `
-
-    display: grid;
-    justify-content: space-between;
-    width:100%;
-    grid-template-columns: 40px 90px 90px;
-    flex-direction: row;
-
-
-
+export const DivEspaco3 = styled.div`
+  display: grid;
+  justify-content: space-between;
+  width: 100%;
+  grid-template-columns: 40px 90px 90px;
+  flex-direction: row;
 `;
 
 export const InputData = styled.input`
-
-    height:30px;
-
-
-
+  height: 30px;
 `;
 
 export const Section = styled.section`
-
-    margin-top: 80px;
-
-
-
-
+  margin-top: 80px;
 `;
 
 export const Button = styled.button`
-
-    cursor: pointer;
-    background-color: gray;
-    height: 30px;
-    border-radius: 4px;
-
-
+  cursor: pointer;
+  background-color: gray;
+  height: 30px;
+  border-radius: 4px;
 `;
 
 //teste jessica
 export const FormEnderecos = styled.div`
-    margin-top: 60px;
-    width: 380px;
-    margin: auto; 
-    height: 400px;
-    border: 1px solid #ddd;
+  margin-top: 60px;
+  width: 380px;
+    margin-left: 500px;
+  align-items: center;
+  align-content: center;
+  height: 500px;
+  border: 2px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px;
+  box-sizing: border-box;
+`;
+
+export const Newform = styled.div`
+justify-content: space-between;
+        
+    align-items: center;
     display:flex;
     flex-direction: column;
-    padding: 30px;
+    padding: 20px 20px;
     box-sizing: border-box;
-    justify-content: space-between;
-`;
+    `;
+
+    export const DivCep = styled.div`
+    padding-top: 55px;
+    padding-bottom:50px;
+    `;
+
+    export const DivCliente = styled.div`
+    padding: 15px;
+    
+    `;
+    export const DivComplemento = styled.div`
+    padding: 15px;
+    
+    `;
+
+    export const DivCidade = styled.div`
+    padding: 15px;
+    
+    `;
+
+    export const DivEstado = styled.div`
+    padding: 15px;
+    
+    `;
+
+    export const DivEmail = styled.div`
+    padding: 15px;
+    
+    `;
+
+    export const DivBotaoSalvar = styled.div`
+    padding: 15px;
+    
+    `;
