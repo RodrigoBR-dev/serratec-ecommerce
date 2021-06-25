@@ -2,20 +2,23 @@ import React,{useEffect, useState} from 'react';
 import { CardCustom, Image, Info,  Container } from "./styles/card-styles"
 import { Button , ButtonDiv} from './styles/global-style';
 import util from '../../utils/dinheiro'
+import utilStorage from '../../utils/storage'
 const Card = (props) => {
 
-    const [quant, setQuantidade] = useState(props.quantidade);
+    const [estoque, setEstoque] = useState(utilStorage.obterEstoque(props.nome));
+    const [cont, setContador] = useState(props.quantidade);
+
 
     const handleAumentaQuantidade = () => {
-        if(quant < props.quantidade){
-            setQuantidade(quant + 1)
         
+        if(cont < estoque){
+            setContador(cont + 1)
         }
     }
     //controla o mínimo de itens
     const handleDiminuiQuantidade = () => {
-        if(quant >= props.quantidade && quant !== 1){
-            setQuantidade(quant - 1)            
+        if(cont > 0  ){
+            setContador(cont - 1)            
         }
     }
 
@@ -33,13 +36,13 @@ const Card = (props) => {
                 <Container>
                     <ButtonDiv>
                         <Button onClick={handleDiminuiQuantidade}>-</Button>
-                        <p>{quant}</p>
+                        <p>{cont}</p>
                         <Button onClick={handleAumentaQuantidade}>+</Button>
                     </ButtonDiv>
                 </Container>
 
                 <Container>
-                    <Info>{util.formatarParaValorReal( props.valor * quant ) }</Info>
+                    <Info>{util.formatarParaValorReal( props.valor * cont ) }</Info>
                 </Container>
                 
             </CardCustom>

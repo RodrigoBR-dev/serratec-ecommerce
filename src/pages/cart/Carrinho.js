@@ -12,15 +12,15 @@ const Carrinho = () => {
     const [numeroPedido,setNumeroPedido] = useState(""); 
     const [produtos,setProdutos] = useState([]); 
 
-    const [pedido,setPedido] = useState({}); 
-
-
+    const [pedido,setPedido] = useState({});
+    const [quantidade,setQuantidade] = useState() 
     
     useEffect(() => {
-        utilsStorage.armazenarNumeroPedido("80106064")
+        
         setNumeroPedido(utilsStorage.obterNumeroDoPedido());
         if(!numeroPedido){
             <div> Carrinho vazio </div>
+            
             return;
         }
        
@@ -51,7 +51,8 @@ const Carrinho = () => {
     return(            
         <Container>
                 <CardProdutos>
-                    {produtos.map(produto => (                                                                 
+                    {produtos.map(produto => (    
+                                                                                    
                         <DivProd className="produtos" key={produto.nome}>
                             <Card imagem={produto.imagem} 
                             nome={produto.nome} 
@@ -62,6 +63,7 @@ const Carrinho = () => {
                                 <Button   onClick={() => removerProduto(produto.nome)}>X</Button>
                             </BotaoDiv>
                         </DivProd>
+
                         ))}
                 </CardProdutos>
                 <Resumo subtotal = {pedido.totalProdutos}/>
