@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-//import { FormEnderecos } from "../../styles/forms";
-import { FormEnderecos, DivCep, DivCliente } from '../../styles/forms';
-import styled from "styled-components";
-
+import '../../styles/styles.css';
+import  '../../styles/forms';
+import { FormEnderecos } from "../../styles/forms";
 
 
 
@@ -38,34 +37,28 @@ const EnderecoForm = () => {
   return (
     <FormEnderecos > 
       <h1>Faça seu cadastro</h1>
-      <form className="Newform" onSubmit={onSubmit}>
-        <div className="DivCep">
-          <label htmlFor="DivCep">CEP</label>
+      <div className="Newform" onSubmit={onSubmit}>
+        <div className="DivInput">
+          <label htmlFor="cep">CEP</label>
           <input id="cep" name="cep" type="text" placeholder="informe um CEP válido"   onChange={onChange} />
-        </div><br></br>
+        </div>
+      
 
-        <div className="DivCliente">
+        <div className="DivInput">
           <label htmlFor="cliente">Cliente</label>
-          <input id="cliente"
-            name="cliente"
-            placeholder="digite seu nome"
-            type="text"
+          <input id="cliente" name="cliente" placeholder="digite seu nome" type="text"
+                   
+            
             onChange={onChange}
           />
-        </div><br></br>
+        </div>
 
-        <div className="DivNumero">
+        <div className="DivInput">
           <label htmlFor="numero">Numero</label>
-          <input
-            id="numero"
-            name="numero"
-            placeholder="número"
-            type="text"
-            onChange={onChange}
-          />
-        </div><br></br>
+          <input id="numero" name="numero" placeholder="número" type="text" onChange={onChange}/>
+        </div>
 
-        <div className="DivComplemento">
+        <div className="DivInput">
           <label htmlFor="complemento">complemento</label>
           <input
             id="complemento"
@@ -74,33 +67,33 @@ const EnderecoForm = () => {
             type="text"
             onChange={onChange}
           />
-          </div><br></br>
+          </div>
 
-          <div className="DivBairro">
+          <div className="DivInput">
             <label htmlFor="bairro">Bairro</label>
             <input id="bairro" name="bairro" type="text" placeholder="bairro" onChange={onChange} />
-          </div><br></br>
+          </div>
 
-          <div className="DivCidade">
+          <div className="DivInput">
             <label htmlFor="cidade">Município</label>
             <input id="cidade" name="cidade" type="text" placeholder="Município" onChange={onChange} />
-          </div><br></br>
+          </div>
 
-          <div className="DivEstado">
+          <div className="DivInput">
             <label htmlFor="estado">UF</label>
             <input id="estado" name="estado" type="text" placeholder="UF" onChange={onChange} />
-          </div><br></br>
+          </div>
 
-          <div className="DivEmail">
+          <div className="DivInput">
             <label htmlFor="email">email</label>
             <input id="email" name="email" type="email" placeholder="email@email.com" onChange={onChange} />
-          </div><br></br>
+          </div>
 
       
         <div className="BotaoSalvar">
-          <button type="submit" a href="/endereco">Salvar</button>
-        </div>
-      </form>
+          <button type="submit" a href="./cadastro-endereco">Salvar</button>
+       </div>
+      </div>
       </FormEnderecos>
   );
 };

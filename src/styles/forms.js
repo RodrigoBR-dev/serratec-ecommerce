@@ -65,48 +65,23 @@ export const FormEnderecos = styled.div`
   flex-direction: column;
   padding: 20px 20px;
   box-sizing: border-box;
+  box-shadow: 0px 0px 10px black;
 `;
 
-export const Newform = styled.div`
-justify-content: space-between;
-        
-    align-items: center;
-    display:flex;
-    flex-direction: column;
-    padding: 20px 20px;
-    box-sizing: border-box;
-    `;
 
-    export const DivCep = styled.div`
-    padding-top: 55px;
-    padding-bottom:50px;
-    `;
+  
+    export const BotaoSalvar = styled.form`
+    width: 100%;
+    font-size: 18px;
+    border-radius: 4px;
+    height: 40px;
+    opacity: .8;
+    margin-bottom: 20px;
+    cursor: pointer;
+    display: block;
+    border-bottom: 1px solid var(--cor-bordas);
+    border-right: 1px solid var(--cor-bordas);
+    transition: 1.2s;
 
-    export const DivCliente = styled.div`
-    padding: 15px;
-    
-    `;
-    export const DivComplemento = styled.div`
-    padding: 15px;
-    
-    `;
 
-    export const DivCidade = styled.div`
-    padding: 15px;
-    
-    `;
-
-    export const DivEstado = styled.div`
-    padding: 15px;
-    
-    `;
-
-    export const DivEmail = styled.div`
-    padding: 15px;
-    
-    `;
-
-    export const DivBotaoSalvar = styled.div`
-    padding: 15px;
-    
     `;

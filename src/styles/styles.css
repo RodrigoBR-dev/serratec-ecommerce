@@ -8,3 +8,37 @@ body {
     box-sizing: border-box;
     font-family: 'Lobster', cursive;
 }
+
+.NewForm {
+    padding: 10px;
+    
+  
+
+}
+
+.DivInput{
+    justify-content: space-between;
+    float: left;
+    width: 100%;
+
+align-items: flex-end;
+}
+.DivInput input {
+width: 50%;
+margin: 10px;
+float: right;
+
+}
+
+.BotaoSalvar{
+    width: 100%;
+    align-items: flex-end;
+  
+    font-size: 15;
+        
+    opacity: .8;
+    margin-bottom: 20px;
+    cursor: pointer;
+    display: block;
+    transition: 1.2s;
+}
