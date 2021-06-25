@@ -34,6 +34,12 @@ function obterEstoque(nomeProduto){
 function armazenarEstoque(nomeProduto, quantidade){
     localStorage.setItem(nomeProduto , quantidade)
 }
+function armazenarTotal(total){
+    localStorage.setItem("total",total);
+}
+function obterTotal(){
+    localStorage.getItem("total")
+}
 
 export default {
     obterNumeroDoPedido,

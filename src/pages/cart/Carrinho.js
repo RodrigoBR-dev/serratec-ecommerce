@@ -13,7 +13,7 @@ const Carrinho = () => {
     const [produtos,setProdutos] = useState([]); 
 
     const [pedido,setPedido] = useState({});
-    const [quantidade,setQuantidade] = useState() 
+    const [total, setTotal] = useState(0)
     
     useEffect(() => {
         
@@ -41,6 +41,7 @@ const Carrinho = () => {
         pedidoApi.obterPorNumero(numeroPedido)
             .then(resposta => { 
                 setPedido(resposta.data)
+                setTotal(pedido.totalProdutos)
                 setProdutos(resposta.data.produto.map (obj => new Produto(obj) ))
             }).catch(erro => {
                 console.log(erro)
@@ -66,7 +67,7 @@ const Carrinho = () => {
 
                         ))}
                 </CardProdutos>
-                <Resumo subtotal = {pedido.totalProdutos}/>
+                <Resumo frete ={pedido.frete} total = {pedido.totalProdutos}/>
         </Container>
         
     );

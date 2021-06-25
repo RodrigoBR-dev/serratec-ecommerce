@@ -7,12 +7,17 @@ const Card = (props) => {
 
     const [estoque, setEstoque] = useState(utilStorage.obterEstoque(props.nome));
     const [cont, setContador] = useState(props.quantidade);
+    const [total,setTotal] = useState(props.valor)
 
+    useEffect (() => {
+        calculaTotal()
+    })
 
     const handleAumentaQuantidade = () => {
         
         if(cont < estoque){
             setContador(cont + 1)
+
         }
     }
     //controla o mínimo de itens
@@ -20,6 +25,9 @@ const Card = (props) => {
         if(cont > 0  ){
             setContador(cont - 1)            
         }
+    }
+    const calculaTotal = () => {
+        localStorage.setItem( "total" , props.valor * cont)
     }
 
     return(
