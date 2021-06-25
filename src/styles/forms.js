@@ -76,3 +76,17 @@ export const Button = styled.button`
 
 
 `;
+
+//teste jessica
+export const FormEnderecos = styled.div`
+    margin-top: 60px;
+    width: 380px;
+    margin: auto; 
+    height: 400px;
+    border: 1px solid #ddd;
+    display:flex;
+    flex-direction: column;
+    padding: 30px;
+    box-sizing: border-box;
+    justify-content: space-between;
+`;

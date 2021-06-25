@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const ListaEnderecos = ({endereco}) => (
+const FormEnderecos = ({endereco}) => (
     
   <div>
   <form className="lista-enderecos">
@@ -22,3 +22,4 @@ const ListaEnderecos = ({endereco}) => (
 
 );
 
+export default FormEnderecos;
