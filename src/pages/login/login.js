@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import { Link } from "react-router-dom";
 import usuarioApi from '../../services/usuario-api'
 import utilStorage from '../../utils/storage';
 import { DivPersonalizada } from '../../styles/geral';
@@ -49,6 +49,9 @@ const Login = () => {
             <label htmlFor="senha">Senha</label>
             <InputText itemID="senha" type="password" value={senha} onChange={e => setSenha(e.target.value)}></InputText>
             <Button2 onClick={efetuarLogin}>Entrar</Button2>
+            <Link to="/clientes/cadastro">
+            <Button2>Criar Conta </Button2>
+            </Link>
         </DivPersonalizada>
     );
 }

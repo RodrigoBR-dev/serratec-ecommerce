@@ -27,7 +27,8 @@ const CadastroClientes = () => {
         })
 
         clientesApi.cadastrarCliente(dadosCliente).then(function (response) {
-
+            alert("Cliente criado com sucesso")
+            window.open("/", ("_self"))
           })
           .catch(function (error) {
             alert("Não foi possível criar este cliente");
