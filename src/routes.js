@@ -15,7 +15,7 @@ const Routes = () => (
             <Route path="/detalhes/:nome" component= {Details} /> */}
             <Route path="/carrinho" component= {Carrinho} />   
             <Route path="/clientes/cadastro" component= {CadastroClientes} />
-            <Route path="/enderecos" component= {BuscaEnderecos} />
+            <Route path="/endereco" component= {BuscaEnderecos} />
             <Route path="/cadastro-endereco" component= {EnderecoForm} />
 
             {/* <Route path="/detalhes/:nome" component= {Details} /> */}
