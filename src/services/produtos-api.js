@@ -2,31 +2,51 @@ import api from "./api";
 
 
 function obterTodos(){
-    return new Promise((resolve, reject) => {
-        return api.get('/produto')
-        .then(response => resolve(response))
-        .catch(error => reject(error))
+    return new Promise(async (resolve, reject) => {
+        try {
+            const response = await api.get('/produto');
+            return resolve(response);
+        } catch (error) {
+            return reject(error);
+        }
+    });
+}
+function obterPorNome(nomeProduto){
+    return new Promise(async (resolve, reject) => {
+        try {
+            const response = await api.get(`/produto/${nomeProduto}`);
+            return resolve(response);
+        } catch (error) {
+            return reject(error);
+        }
     });
 }
 
 function obterPorCategoria(categoria){
-    return new Promise((resolve, reject) => {
-        return api.get('/produto/'+categoria)
-        .then(response => resolve(response))
-        .catch(error => reject(error))
+    return new Promise(async (resolve, reject) => {
+        try {
+            const response = await api.get('/produto/' + categoria);
+            return resolve(response);
+        } catch (error) {
+            return reject(error);
+        }
     });
 }
 
 function obterPorBusca(nomeProduto){
-    return new Promise((resolve, reject) => {
-        return api.get('/produto/busca'+nomeProduto)
-        .then(response => resolve(response))
-        .catch(error => reject(error))
+    return new Promise(async (resolve, reject) => {
+        try {
+            const response = await api.get('/produto/busca' + nomeProduto);
+            return resolve(response);
+        } catch (error) {
+            return reject(error);
+        }
     });
 }
 
 export default {
     obterTodos,
+    obterPorNome,
     obterPorCategoria,
     obterPorBusca
 }

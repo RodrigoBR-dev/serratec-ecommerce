@@ -7,13 +7,24 @@ function armazenarNumeroPedido(numero){
 }
 
 function obterToken(){
-    let token = localStorage.getItem("token");
-    return token;
-
+    let token = JSON.parse(localStorage.getItem("token"));
+    if (token) {
+        let currentDate = new Date().getTime();
+        return token.expires <= currentDate ? removeToken() : token.value;
+    }
 }
 
 function armazenarToken(token){
-    localStorage.setItem("token" , token)
+    let expira = new Date().getTime() + (3600000);
+    localStorage.setItem("token" , JSON.stringify({ 
+        "value": token,
+        "expires": expira
+    }))
+}
+
+function removeToken() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userName")
 }
 
 const obterUser = () => {
@@ -26,8 +37,7 @@ function armazenarUser(userName){
 }
 
 function obterEstoque(nomeProduto){
-    let token = localStorage.getItem(nomeProduto);
-    return token;
+    return localStorage.getItem(nomeProduto);
 
 }
 

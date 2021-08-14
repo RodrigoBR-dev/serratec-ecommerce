@@ -75,4 +75,10 @@ export const DetalheProd = styled.div`
     margin: auto;
     max-width: 90%;
     padding: 10px;
+
+    div {
+        text-align: center;
+        flex-direction: column;
+        max-width: 500px;
+    }
 `;

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import api from '../../services/api';
+import pedidoApi from '../../services/pedido-api';
 import formatarParaReal from '../../utils/money';
-import { DetalheProd } from '../../styles/divs';
+import { DetalheProd} from '../../styles/divs';
 import utilStorage from '../../utils/storage';
-import { Button , ButtonDiv} from '../cart/styles/global-style';
+import { Button, ButtonDiv } from '../cart/styles/global-style';
+import produtosApi from '../../services/produtos-api';
 
 const Details = (props) => {
     const [nomeProduto, setNomeProduto] = useState("");
@@ -21,19 +22,21 @@ const Details = (props) => {
     })
 
     const obterProduto = async () => {
-        let resposta = await api.get("/produto/" + nomeProduto);
-        setProduct(resposta.data);
+        await produtosApi.obterPorNome(nomeProduto)
+            .then(resposta => {
+                setProduct(resposta.data);
+            });
     }
 
     function testaUsuario() {
         if (!userName) {
-           window.open('/login', '_self');
+            window.open('/login', '_self');
         }
         testarPedido()
     }
 
     function testarPedido() {
-        if (numPedido){
+        if (numPedido) {
             atualizarPedido()
             return;
         }
@@ -42,21 +45,20 @@ const Details = (props) => {
 
     const criarPedido = async () => {
         let endEntrega = "casa";
-        await api.post("/pedido", {"produto" : nomeProduto, "cliente" : userName, "endEntrega" : endEntrega, "quantidade" : quantidade})
-        .then(resposta => {
-            utilStorage.armazenarNumeroPedido(resposta.data.numeroDoPedido);
-            utilStorage.armazenarEstoque(nomeProduto, product.quantEstoque);
-        })
-      //  window.open('/', '_self');
+        await pedidoApi.criarNovo(userName, endEntrega, nomeProduto, quantidade)
+            .then(resposta => {
+                utilStorage.armazenarNumeroPedido(resposta.data.numeroDoPedido);
+                utilStorage.armazenarEstoque(nomeProduto, product.quantEstoque);
+            });
+        window.open('/', '_self');
     }
 
-    const atualizarPedido = async ()=> {
-        let endEntrega = "casa";
-        await api.put("/pedido", {"numeroDoPedido": numPedido,"produto" : nomeProduto, "quantidade" : quantidade})
-        .then(resposta => {
-            utilStorage.armazenarEstoque(nomeProduto, product.quantEstoque);
-        })
-     //   window.open('/', '_self');
+    const atualizarPedido = async () => {
+        await pedidoApi.atualizar(numPedido, nomeProduto, quantidade)
+            .then(resposta => {
+                utilStorage.armazenarEstoque(nomeProduto, product.quantEstoque);
+            })
+        //   window.open('/', '_self');
     }
 
     const handleAumentaQuantidade = () => {
@@ -74,21 +76,24 @@ const Details = (props) => {
 
     return (
         <DetalheProd>
-            <center>
+            <div>
                 <img src={product.url}></img>
-                <div>Categoria {product.categoria}</div>
+                Categoria {product.categoria}
+            </div>
+            <div>
                 <div>{product.nome}</div>
                 <div>{product.descricao}</div>
                 <div>{formatarParaReal(product.preco)}</div>
                 <div>{product.quantEstoque}</div>
+            </div>
+            <div>
                 <ButtonDiv>
                     <Button onClick={handleDiminuiQuantidade}>-</Button>
                     <p>{quantidade}</p>
                     <Button onClick={handleAumentaQuantidade}>+</Button>
                 </ButtonDiv>
-
                 <button onClick={() => testaUsuario()}>Enviar carrinho</button>
-            </center>
+            </div>
         </DetalheProd>
     )
 }

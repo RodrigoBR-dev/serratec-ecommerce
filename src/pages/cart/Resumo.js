@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react';
-import util from '../../utils/dinheiro'
+import formatarParaReal from '../../utils/money'
 import { CardResumo, Info , Break} from './styles/resumo-styles';
 import { Button } from './styles/global-style';
 import { Link } from "react-router-dom";
@@ -17,7 +17,7 @@ const Resumo = (props) => {
         setFrete(parseFloat(props.frete))
         let calculo = props.frete + total
         console.log(total + frete)
-        setTotalFinal(util.formatarParaValorReal(calculo))
+        setTotalFinal(formatarParaReal(calculo))
 
     }
 
@@ -25,11 +25,11 @@ const Resumo = (props) => {
 
             <CardResumo>
                 <Info>
-                    <p>Subtotal:{util.formatarParaValorReal(localStorage.getItem("total"))}</p>
+                    <p>Subtotal:{formatarParaReal(localStorage.getItem("total"))}</p>
                     <Break/>
                 </Info>
                 <Info>
-                    <p>Frete:{util.formatarParaValorReal(props.frete)}</p>
+                    <p>Frete:{formatarParaReal(props.frete)}</p>
                     <Break/>
                 </Info>
                 <Info>

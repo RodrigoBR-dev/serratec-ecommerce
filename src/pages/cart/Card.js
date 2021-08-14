@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import { CardCustom, Image, Info,  Container } from "./styles/card-styles"
 import { Button , ButtonDiv} from './styles/global-style';
-import util from '../../utils/dinheiro'
+import formatarParaReal from '../../utils/money'
 import utilStorage from '../../utils/storage'
 const Card = (props) => {
 
@@ -50,7 +50,7 @@ const Card = (props) => {
                 </Container>
 
                 <Container>
-                    <Info>{util.formatarParaValorReal( props.valor * cont ) }</Info>
+                    <Info>{formatarParaReal( props.valor * cont ) }</Info>
                 </Container>
                 
             </CardCustom>
