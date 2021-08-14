@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import produtosApi from '../../services/produtos-api';
 
 import { Menu } from "../../styles/geral";
 import storage from '../../utils/storage';

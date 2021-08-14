@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import ListaEnderecos from './ListaEnderecos';
 
 const BuscaEndereco = ({search}) => {
   const [enderecos, setEndereco] = useState([]);

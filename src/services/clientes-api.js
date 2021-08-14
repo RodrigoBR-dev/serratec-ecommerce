@@ -9,6 +9,8 @@ function cadastrarCliente(dadosCliente){
     })
 }
 
-export default {
+const clientesAPI = {
     cadastrarCliente
 };
+
+export default clientesAPI;

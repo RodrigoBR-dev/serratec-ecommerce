@@ -12,9 +12,10 @@ const Token = (props) => {
 
     useEffect(() => {
         setToken(props.match.params.token);
-    }) 
+    })
+    
     function comparar() {
-        if (senha != repSenha) {
+        if (senha !== repSenha) {
             alert("As senhas digitadas devem ser iguais")
             return;
         }

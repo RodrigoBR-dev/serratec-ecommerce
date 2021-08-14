@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { DivBox, DivEspaco1, DivEspaco2, Section, InputData, Button } from "../../styles/forms";
 import clientesApi from "../../services/clientes-api";
 import Cliente from "../../model/cliente";
-import api from "../../services/api";
 
 const CadastroClientes = () => {
     const [email, setEmail] = useState("");

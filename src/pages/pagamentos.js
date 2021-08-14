@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { DivBox2 } from "../styles/forms"
 import { DivPagamento } from "../styles/divs" 
 

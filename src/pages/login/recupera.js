@@ -19,7 +19,7 @@ const Recupera = () => {
                 alert('Um link, para recuperação de senha, foi enviado para o seu e-mail');
             })
             .catch(error => {
-                if (error.response.status == 404) {
+                if (error.response.status === 404) {
                     alert('Cpf não cadastrado');
                     return
                 }

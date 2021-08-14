@@ -32,8 +32,10 @@ function atualizar(numPedido, nomeProduto, quantidade){
     });
 }
 
-export default {
+const pedidoApi = {
     obterPorNumero,
     criarNovo,
     atualizar
 }
+
+export default pedidoApi;

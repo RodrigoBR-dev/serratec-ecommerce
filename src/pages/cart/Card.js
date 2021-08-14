@@ -1,30 +1,27 @@
-import React,{useEffect, useState} from 'react';
-import { CardCustom, Image, Info,  Container } from "./styles/card-styles"
+import React,{useEffect} from 'react';
+import { CardCustom, Image, Info,  Container } from './styles/card-styles';
 import { Button , ButtonDiv} from './styles/global-style';
-import formatarParaReal from '../../utils/money'
-import utilStorage from '../../utils/storage'
+
+import pedidoApi from '../../services/pedido-api';
+import formatarParaReal from '../../utils/money';
+
 const Card = (props) => {
 
-    const [estoque, setEstoque] = useState(utilStorage.obterEstoque(props.nome));
-    const [cont, setContador] = useState(props.quantidade);
-    const [total,setTotal] = useState(props.valor)
+    let cont = props.quantidade;
 
     useEffect (() => {
         calculaTotal()
     })
 
     const handleAumentaQuantidade = () => {
-        
-        if(cont < estoque){
-            setContador(cont + 1)
-
-        }
+        pedidoApi.atualizar(props.pedido, props.nome, props.quantidade + 1)
+            .then(() => {props.setAtualiza(props.atualiza + 1)})
+            .catch((error) => {console.log(error)});
     }
-    //controla o mínimo de itens
     const handleDiminuiQuantidade = () => {
-        if(cont > 0  ){
-            setContador(cont - 1)            
-        }
+        pedidoApi.atualizar(props.pedido, props.nome, props.quantidade - 1)
+            .then(() => {props.setAtualiza(props.atualiza + 1)})
+            .catch((error) => {console.log(error)});
     }
     const calculaTotal = () => {
         localStorage.setItem( "total" , props.valor * cont)

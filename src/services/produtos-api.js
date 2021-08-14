@@ -44,9 +44,11 @@ function obterPorBusca(nomeProduto){
     });
 }
 
-export default {
+const produtosApi = {
     obterTodos,
     obterPorNome,
     obterPorCategoria,
     obterPorBusca
-}
+};
+
+export default produtosApi;

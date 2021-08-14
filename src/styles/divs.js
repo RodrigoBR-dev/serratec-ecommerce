@@ -59,7 +59,13 @@ export const ContainerProduto = styled.div`
 `;
 
 export const NomeProduto = styled.div`
-    font-size: 20px;
+    font-size: 30px;
+    margin-bottom: 10px;
+`;
+
+export const PrecoProduto = styled.div`
+    font-size: 30px;
+    margin: 10px;
 `;
 
 export const DivPagamento = styled.div`
@@ -72,13 +78,17 @@ export const DivPagamento = styled.div`
 
 export const DetalheProd = styled.div`
     display: flex;
+    justify-content: center;
     margin: auto;
     max-width: 90%;
     padding: 10px;
 
+    img {
+        width:300px;
+    }
+
     div {
         text-align: center;
-        flex-direction: column;
         max-width: 500px;
     }
 `;

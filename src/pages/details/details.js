@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import pedidoApi from '../../services/pedido-api';
 import formatarParaReal from '../../utils/money';
-import { DetalheProd} from '../../styles/divs';
+import { DetalheProd, NomeProduto, PrecoProduto } from '../../styles/divs';
 import utilStorage from '../../utils/storage';
 import { Button, ButtonDiv } from '../cart/styles/global-style';
 import produtosApi from '../../services/produtos-api';
@@ -19,7 +19,7 @@ const Details = (props) => {
         obterProduto();
         setUserName(utilStorage.obterUser());
         setNumPedido(utilStorage.obterNumeroDoPedido());
-    })
+    });
 
     const obterProduto = async () => {
         await produtosApi.obterPorNome(nomeProduto)
@@ -44,7 +44,7 @@ const Details = (props) => {
     }
 
     const criarPedido = async () => {
-        let endEntrega = "casa";
+        let endEntrega = "Casa";
         await pedidoApi.criarNovo(userName, endEntrega, nomeProduto, quantidade)
             .then(resposta => {
                 utilStorage.armazenarNumeroPedido(resposta.data.numeroDoPedido);
@@ -58,7 +58,7 @@ const Details = (props) => {
             .then(resposta => {
                 utilStorage.armazenarEstoque(nomeProduto, product.quantEstoque);
             })
-        //   window.open('/', '_self');
+        window.open('/', '_self');
     }
 
     const handleAumentaQuantidade = () => {
@@ -77,22 +77,20 @@ const Details = (props) => {
     return (
         <DetalheProd>
             <div>
-                <img src={product.url}></img>
-                Categoria {product.categoria}
+                <img src={product.url} alt="Imagem do produto"></img>
             </div>
             <div>
-                <div>{product.nome}</div>
+                <NomeProduto>{product.nome}</NomeProduto>
                 <div>{product.descricao}</div>
-                <div>{formatarParaReal(product.preco)}</div>
-                <div>{product.quantEstoque}</div>
-            </div>
-            <div>
-                <ButtonDiv>
-                    <Button onClick={handleDiminuiQuantidade}>-</Button>
-                    <p>{quantidade}</p>
-                    <Button onClick={handleAumentaQuantidade}>+</Button>
-                </ButtonDiv>
-                <button onClick={() => testaUsuario()}>Enviar carrinho</button>
+                <PrecoProduto>{formatarParaReal(product.preco)}</PrecoProduto>
+                <div>
+                    <ButtonDiv>
+                        <Button onClick={handleDiminuiQuantidade}>-</Button>
+                        <p>{quantidade}</p>
+                        <Button onClick={handleAumentaQuantidade}>+</Button>
+                    </ButtonDiv>
+                    <button onClick={() => testaUsuario()}>Enviar carrinho</button>
+                </div>
             </div>
         </DetalheProd>
     )

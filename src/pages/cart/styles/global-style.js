@@ -23,7 +23,6 @@ export const Button = styled.button `
 export const ButtonDiv = styled.div `
     
     display: flex;
-    flex-direction: row;
     align-items: center;
     border-radius: 90px;
     height: 50px;

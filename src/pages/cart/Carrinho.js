@@ -11,27 +11,27 @@ const Carrinho = () => {
 
     const [numeroPedido,setNumeroPedido] = useState(""); 
     const [produtos,setProdutos] = useState([]); 
-
+    const [atualiza, setAtualiza] = useState(0);
     const [pedido,setPedido] = useState({});
-    const [total, setTotal] = useState(0)
     
     useEffect(() => {
-        
         setNumeroPedido(utilsStorage.obterNumeroDoPedido());
         if(!numeroPedido){
             <div> Carrinho vazio </div>
-            
             return;
         }
-       
         obterPedido()
     })
 
+    useEffect(() => {
+        obterPedido()
+    }, [atualiza])
+
     const removerProduto = (nome) => {
         const quantidade = 0;
-        pedidoApi.removerProduto(numeroPedido,nome,quantidade)
+        pedidoApi.atualizar(numeroPedido,nome,quantidade)
             .then(resposta => { 
-                
+                obterPedido();
             }).catch(erro => {
                 console.log(erro)
             })
@@ -41,38 +41,51 @@ const Carrinho = () => {
         pedidoApi.obterPorNumero(numeroPedido)
             .then(resposta => { 
                 setPedido(resposta.data)
-                setTotal(pedido.totalProdutos)
-                setProdutos(resposta.data.produto.map (obj => new Produto(obj) ))
+                setProdutos(resposta.data.produto.map(obj => new Produto(obj)))
             }).catch(erro => {
                 console.log(erro)
             })
     }
- 
 
+    function renderProdutos() {
+        return produtos.map((produto, index) => {
+            <DivProd className="produtos" key={index}>
+            <Card imagem={produto.imagem} 
+            nome={produto.nome} 
+            quantidade={produto.quantidade} 
+            valor={produto.valor} 
+            pedido={numeroPedido} 
+            atualiza={atualiza}
+            setAtualiza={setAtualiza}
+            />
+            <BotaoDiv>
+                <Button onClick={() => removerProduto(produto.nome)}>X</Button>
+            </BotaoDiv>
+        </DivProd>
+        })}
+ 
     return(            
         <Container>
                 <CardProdutos>
-                    {produtos.map(produto => (    
-                                                                                    
+                    {produtos.map(produto => (
                         <DivProd className="produtos" key={produto.nome}>
                             <Card imagem={produto.imagem} 
                             nome={produto.nome} 
                             quantidade={produto.quantidade} 
-                            valor={produto.valor}                                  
+                            valor={produto.valor} 
+                            pedido={numeroPedido} 
+                            atualiza={atualiza}
+                            setAtualiza={setAtualiza}
                             />
                             <BotaoDiv>
-                                <Button   onClick={() => removerProduto(produto.nome)}>X</Button>
+                                <Button onClick={() => removerProduto(produto.nome)}>X</Button>
                             </BotaoDiv>
                         </DivProd>
-
                         ))}
                 </CardProdutos>
-                <Resumo frete ={pedido.frete} total = {pedido.totalProdutos}/>
+                <Resumo frete={pedido.frete} subtotal={pedido.totalProdutos} total={pedido.valorTotalDoPedido}/>
         </Container>
-        
     );
 }
-
-
 
 export default Carrinho;

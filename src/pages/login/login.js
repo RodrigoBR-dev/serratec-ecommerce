@@ -18,15 +18,13 @@ const Login = () => {
 
         usuarioApi.logar(email, senha)
             .then(resposta => {
-                const token = resposta.data[0].Authorization;
-                const user = resposta.data[1].userName;
-                utilStorage.armazenarToken(token);
-                utilStorage.armazenarUser(user);
+                utilStorage.armazenarToken(resposta.headers.authorization);
+                utilStorage.armazenarUser(resposta.headers.username);
                 window.open('/', "_self");
             })
             .catch(error => {
                 let erroStatus = error.response.status;
-                if (erroStatus == 403) {
+                if (erroStatus === 403) {
                     alert("Usuário ou senha inválido");
                     return
                 }

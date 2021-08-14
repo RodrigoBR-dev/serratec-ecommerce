@@ -24,8 +24,10 @@ function atualizarSenha(token){
     })
 }
 
-export default {
+const usuarioAPI = {
     logar,
     recebeToken,
     atualizarSenha
 };
+
+export default usuarioAPI;
